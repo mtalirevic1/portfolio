@@ -1,4 +1,5 @@
-import './globals.css'
+import '../globals.css'
+import { i18n } from '@/i18n-config'
 import {Lato, Roboto} from 'next/font/google'
 import {ReactNode} from 'react'
 
@@ -21,13 +22,19 @@ const accentFont = Lato({
   subsets: ["latin"]
 })
 
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }))
+}
+
 export default function RootLayout({
   children,
+    params,
 }: {
   children: ReactNode
+  params: {lang: string}
 }) {
   return (
-    <html lang="en" className={`${mainFont.variable} ${accentFont.variable}`}>
+    <html lang={params.lang} className={`${mainFont.variable} ${accentFont.variable}`}>
       <body>{children}</body>
     </html>
   )
