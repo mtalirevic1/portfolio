@@ -1,15 +1,16 @@
 import Link from "next/link";
 import NavLink from "@/components/header/NavLink";
+import { HeaderStrings } from "@/app/types/dictionary";
 
-const Header = () => {
+const Header = ({ headerStrings }: { headerStrings: HeaderStrings }) => {
   return (
     <header className="py-10">
       <div className="container mx-auto flex items-center">
         <nav className="flex w-1/3 justify-start">
           <ul className="flex space-x-12">
-            <NavLink text="Home" href="/" />
-            <NavLink text="Projects" href="/" />
-            <NavLink text="My Journey" href="/" />
+            <NavLink text={headerStrings.journey} href="/" />
+            <NavLink text={headerStrings.projects} href="/" />
+            <NavLink text={headerStrings.contact} href="/" />
           </ul>
         </nav>
         <Link

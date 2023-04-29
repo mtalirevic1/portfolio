@@ -1,9 +1,10 @@
 import "../globals.css";
-import { i18n } from "@/i18n-config";
+import { i18n, Locale } from "@/i18n-config";
 import { Lato, Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import Providers from "@/components/providers";
 import Header from "@/components/header";
+import { getDictionary } from "@/get-dictionary";
 
 export const metadata = {
   title: "MT | Home",
@@ -28,13 +29,14 @@ export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: ReactNode;
-  params: { lang: string };
+  params: { lang: Locale };
 }) {
+  const dictionary = await getDictionary(params.lang);
   return (
     <html
       lang={params.lang}
@@ -42,7 +44,7 @@ export default function RootLayout({
     >
       <body>
         <Providers>
-          <Header />
+          <Header headerStrings={dictionary.header} />
           {children}
         </Providers>
       </body>
