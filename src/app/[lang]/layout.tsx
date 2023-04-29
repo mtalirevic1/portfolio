@@ -3,6 +3,7 @@ import { i18n } from "@/i18n-config";
 import { Lato, Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import Providers from "@/components/providers";
+import Header from "@/components/header";
 
 export const metadata = {
   title: "MT | Home",
@@ -40,7 +41,10 @@ export default function RootLayout({
       className={`${mainFont.variable} ${accentFont.variable}`}
     >
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
