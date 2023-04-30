@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NavLink from "@/components/header/NavLink";
+import NavLink from "@/components/header/nav-link";
 import { HeaderStrings } from "@/app/types/dictionary";
 
 const Header = ({ headerStrings }: { headerStrings: HeaderStrings }) => {
