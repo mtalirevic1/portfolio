@@ -9,7 +9,7 @@ const NavLink = ({ text, href }: { text: string; href: string }) => {
       >
         {text}
       </Link>
-      <span className="block h-0.5 w-0 bg-gray-700 dark:bg-orange-500 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+      <span className="block h-0.5 w-0 group-hover:w-full bg-gray-800 dark:bg-orange-500 transition-all duration-300 ease-in-out"></span>
     </li>
   );
 };

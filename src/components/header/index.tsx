@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NavLink from "@/components/header/nav-link";
 import { HeaderStrings } from "@/app/types/dictionary";
+import ThemeToggle from "@/components/theme-toggle";
 
 const Header = ({ headerStrings }: { headerStrings: HeaderStrings }) => {
   return (
@@ -19,6 +20,9 @@ const Header = ({ headerStrings }: { headerStrings: HeaderStrings }) => {
         >
           Logo
         </Link>
+        <div className="flex w-1/3 justify-end">
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
