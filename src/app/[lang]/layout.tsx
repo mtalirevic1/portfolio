@@ -42,7 +42,7 @@ export default async function RootLayout({
       lang={params.lang}
       className={`${mainFont.variable} ${accentFont.variable}`}
     >
-      <body>
+      <body className="dark:bg-gradient-to-bl from-gray-950 from-20% via-orange-950 via-85% to-amber-950">
         <Providers>
           <Header headerStrings={dictionary.header} />
           {children}

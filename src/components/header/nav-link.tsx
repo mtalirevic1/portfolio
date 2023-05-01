@@ -5,11 +5,11 @@ const NavLink = ({ text, href }: { text: string; href: string }) => {
     <li className="group relative">
       <Link
         href={href}
-        className="text-gray-700 dark:text-orange-500 text-lg md:text-xl lg:text-2xl font-accent font-medium transition-colors duration-300 block"
+        className="text-gray-700 dark:text-orange-600 text-lg md:text-xl lg:text-2xl font-accent font-medium transition-colors duration-300 block"
       >
         {text}
       </Link>
-      <span className="block h-0.5 w-0 group-hover:w-full bg-gray-800 dark:bg-orange-500 transition-all duration-300 ease-in-out"></span>
+      <span className="block h-0.5 w-0 group-hover:w-full bg-gray-800 dark:bg-orange-600 transition-all duration-300 ease-in-out"></span>
     </li>
   );
 };
