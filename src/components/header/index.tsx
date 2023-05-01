@@ -2,6 +2,7 @@ import Link from "next/link";
 import NavLink from "@/components/header/nav-link";
 import { HeaderStrings } from "@/app/types/dictionary";
 import ThemeToggle from "@/components/theme-toggle";
+import LocaleSwitcher from "@/components/locale-switcher";
 
 const Header = ({ headerStrings }: { headerStrings: HeaderStrings }) => {
   return (
@@ -20,8 +21,9 @@ const Header = ({ headerStrings }: { headerStrings: HeaderStrings }) => {
         >
           Logo
         </Link>
-        <div className="flex w-1/3 justify-end">
+        <div className="flex w-1/3 justify-end space-x-12">
           <ThemeToggle />
+          <LocaleSwitcher />
         </div>
       </div>
     </header>

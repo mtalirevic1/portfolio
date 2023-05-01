@@ -31,17 +31,9 @@ const ThemeToggle = () => {
         <Switch
           checked={isDarkTheme}
           onChange={handleThemeSwitch}
-          className={`${
-            isDarkTheme ? "bg-orange-500" : "bg-gray-800"
-          } relative inline-flex h-7 w-12 items-center rounded-full`}
+          className="relative inline-flex h-7 w-12 items-center rounded-full dark:bg-orange-500 bg-gray-800"
         >
-          <span
-            className={`${
-              isDarkTheme
-                ? "translate-x-6 bg-gray-800"
-                : "translate-x-1 bg-white"
-            } inline-block h-5 w-5 transform rounded-full transition`}
-          />
+          <span className="dark:translate-x-6 translate-x-1 inline-block h-5 w-5 transform rounded-full transition dark:bg-gray-800 bg-white" />
         </Switch>
         <BsMoonFill className="h-7 w-7 dark:text-orange-500 text-gray-800 ml-3 hover:animate-rotate-360 transition-colors duration-300" />
       </div>
