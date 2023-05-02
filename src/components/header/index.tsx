@@ -21,7 +21,7 @@ const Header = ({ headerStrings }: { headerStrings: HeaderStrings }) => {
         >
           Logo
         </Link>
-        <div className="flex w-1/3 justify-end space-x-12">
+        <div className="flex w-1/3 justify-end space-x-8">
           <ThemeToggle />
           <LocaleSwitcher />
         </div>

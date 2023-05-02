@@ -5,9 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import BA from "../../public/BA.svg";
 import GB from "../../public/GB.svg";
+import { useState } from "react";
 
 const LocaleSwitcher = () => {
   const pathName = usePathname();
+  const hasEnPath = pathName.includes("/en");
   const redirectedPathName = (locale: string) => {
     if (!pathName) return "/";
     const segments = pathName.split("/");
@@ -17,23 +19,11 @@ const LocaleSwitcher = () => {
 
   return (
     <div className="flex items-center justify-center space-x-3">
-      <Link href={redirectedPathName("bs")} className="h-8 w-10">
-        <Image
-          src={BA}
-          alt="Bosanski"
-          width={60}
-          height={40}
-          className="rounded"
-        />
-      </Link>
-      <Link href={redirectedPathName("en")} className="h-8 w-10">
-        <Image
-          src={GB}
-          alt="English"
-          width={60}
-          height={40}
-          className="rounded"
-        />
+      <Link
+        href={redirectedPathName(hasEnPath ? "bs" : "en")}
+        className="dark:text-orange-600"
+      >
+        {hasEnPath ? "BS" : "EN"}
       </Link>
     </div>
   );
