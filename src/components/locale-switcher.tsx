@@ -2,10 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-import BA from "../../public/BA.svg";
-import GB from "../../public/GB.svg";
-import { useState } from "react";
 
 const LocaleSwitcher = () => {
   const pathName = usePathname();
