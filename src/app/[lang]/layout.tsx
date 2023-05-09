@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 import Providers from "@/components/providers";
 import Header from "@/components/header";
 import { getDictionary } from "@/get-dictionary";
+import Background from "@/components/background";
 
 export const metadata = {
   title: "MT | Home",
@@ -42,8 +43,9 @@ export default async function RootLayout({
       lang={params.lang}
       className={`${mainFont.variable} ${accentFont.variable}`}
     >
-      <body className="dark:bg-gradient-to-b from-black from-20% via-orange-950 via-85% to-amber-950">
+      <body className="dark:bg-gray-800 overflow-hidden">
         <Providers>
+          <Background />
           <Header headerStrings={dictionary.header} />
           {children}
         </Providers>
