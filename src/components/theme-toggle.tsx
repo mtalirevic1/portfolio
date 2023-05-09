@@ -13,9 +13,9 @@ const ThemeToggle = () => {
   }, []);
 
   const handleThemeSwitch = useCallback(() => {
-    setIsDarkTheme((prev) => {
-      setTheme(!prev ? "dark" : "light");
-      return !prev;
+    setIsDarkTheme((prevTheme) => {
+      setTheme(!prevTheme ? "dark" : "light");
+      return !prevTheme;
     });
   }, [setTheme]);
 

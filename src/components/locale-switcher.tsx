@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const LocaleSwitcher = () => {
   const pathName = usePathname();
-  const hasEnPath = pathName.includes("/en");
+  const isEnPath = pathName.includes("/en");
   const redirectedPathName = (locale: string) => {
     if (!pathName) return "/";
     const segments = pathName.split("/");
@@ -16,10 +16,10 @@ const LocaleSwitcher = () => {
   return (
     <div className="flex items-center justify-center space-x-3">
       <Link
-        href={redirectedPathName(hasEnPath ? "bs" : "en")}
+        href={redirectedPathName(isEnPath ? "bs" : "en")}
         className="dark:text-orange-600"
       >
-        {hasEnPath ? "BS" : "EN"}
+        {isEnPath ? "BS" : "EN"}
       </Link>
     </div>
   );
