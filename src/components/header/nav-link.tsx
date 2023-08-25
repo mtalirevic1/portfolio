@@ -5,7 +5,7 @@ const NavLink = ({ text, href }: { text: string; href: string }) => {
     <li className="group relative">
       <Link
         href={href}
-        className="text-gray-700 dark:text-orange-600 text-lg md:text-xl lg:text-2xl font-accent font-medium transition-colors duration-300 block"
+        className="text-gray-700 dark:text-orange-600 text-xl md:text-xl lg:text-2xl font-accent font-medium transition-colors duration-300 block"
       >
         {text}
       </Link>

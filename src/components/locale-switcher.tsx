@@ -14,7 +14,7 @@ const LocaleSwitcher = () => {
   };
 
   return (
-    <div className="flex items-center justify-center space-x-3">
+    <div className="flex items-center justify-center">
       <Link
         href={redirectedPathName(isEnPath ? "bs" : "en")}
         className="dark:text-orange-600"
