@@ -2,19 +2,17 @@ import {Canvas} from "@react-three/fiber";
 import Experience from "./components/Experience.tsx";
 
 function App() {
-  return (
-      <Canvas
-          shadows
-          camera={{
-            fov: 45,
-            near: 0.1,
-            far: 200,
-            position: [2.5, 4, 6]
-          }}
-      >
-        <Experience/>
-      </Canvas>
-  )
+    return (
+        <Canvas
+            shadows
+            camera={{
+                position: [0, 0, 10],
+                fov: 75
+            }}
+        >
+            <Experience/>
+        </Canvas>
+    )
 }
 
 export default App
