@@ -1,22 +1,19 @@
-import {OrbitControls, Stage} from "@react-three/drei";
+import DraggableItem from "./DraggableItem.tsx";
+import {CuboidCollider, Physics} from "@react-three/rapier";
 
 
 const Experience = () => {
     return (
         <>
             <color attach="background" args={['skyblue']}/>
-            <OrbitControls minPolarAngle={0} maxPolarAngle={Math.PI / 1.9}/>
-            <Stage
-                intensity={0.5}
-                preset="rembrandt"
-                adjustCamera={1}
-                environment="studio"
-            >
-                <mesh castShadow receiveShadow position={[2, 0, 2]}>
-                    <meshStandardMaterial/>
-                    <boxGeometry/>
-                </mesh>
-            </Stage>
+
+                <ambientLight />
+                <Physics debug>
+                    <DraggableItem/>
+
+                    <CuboidCollider position={[0, -2, 0]} args={[20, 0.5, 20]} />
+                    <CuboidCollider position={[0, -2, 0]} args={[20, 0.5, 20]} />
+                </Physics>
         </>
     )
 }
