@@ -1,19 +1,13 @@
-import DraggableItem from "./DraggableItem.tsx";
-import {CuboidCollider, Physics} from "@react-three/rapier";
-
+import {Character} from "./Character.tsx";
+import {OrbitControls} from "@react-three/drei";
 
 const Experience = () => {
     return (
         <>
             <color attach="background" args={['skyblue']}/>
-
+                <Character position={[0, 0, 0]} />
                 <ambientLight />
-                <Physics debug>
-                    <DraggableItem/>
-
-                    <CuboidCollider position={[0, -2, 0]} args={[20, 0.5, 20]} />
-                    <CuboidCollider position={[0, -2, 0]} args={[20, 0.5, 20]} />
-                </Physics>
+                <OrbitControls />
         </>
     )
 }
