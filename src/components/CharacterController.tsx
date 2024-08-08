@@ -1,6 +1,6 @@
 import {useKeyboardControls} from "@react-three/drei";
 import {useFrame} from "@react-three/fiber";
-import {CapsuleCollider, RapierRigidBody, RigidBody} from "@react-three/rapier";
+import {CylinderCollider, RapierRigidBody, RigidBody} from "@react-three/rapier";
 import {useControls} from "leva";
 import {useEffect, useRef, useState} from "react";
 import {Group, MathUtils, Vector3} from "three";
@@ -78,7 +78,7 @@ export const CharacterController = () => {
         };
     }, []);
 
-    useFrame(({camera, mouse}) => {
+    useFrame(({camera, pointer,}) => {
         if (rb.current) {
             const vel = rb.current.linvel();
 
@@ -97,11 +97,11 @@ export const CharacterController = () => {
             let speed = get().run ? RUN_SPEED : WALK_SPEED;
 
             if (isClicking.current) {
-                console.log("clicking", mouse.x, mouse.y);
-                if (Math.abs(mouse.x) > 0.1) {
-                    movement.x = -mouse.x;
+                console.log("clicking", pointer.x, pointer.y);
+                if (Math.abs(pointer.x) > 0.1) {
+                    movement.x = -pointer.x;
                 }
-                movement.z = mouse.y + 0.4;
+                movement.z = pointer.y + 0.4;
                 if (Math.abs(movement.x) > 0.5 || Math.abs(movement.z) > 0.5) {
                     speed = RUN_SPEED;
                 }
@@ -162,15 +162,15 @@ export const CharacterController = () => {
     });
 
     return (
-        <RigidBody colliders={false} lockRotations ref={rb} position-y={-2}>
+        <RigidBody lockRotations colliders={false}  ref={rb}>
             <group ref={container}>
-                <group ref={cameraTarget} position-z={1.5}/>
-                <group ref={cameraPosition} position-y={4} position-z={-4}/>
+                <group ref={cameraTarget} position-z={1.5} />
+                <group ref={cameraPosition} position-y={4} position-z={-4} />
                 <group ref={character}>
-                    <Character scale={0.2} animation={animation}/>
+                    <Character scale={0.18} position-y={-0.25} animation={animation} />
                 </group>
             </group>
-            <CapsuleCollider args={[0.2, 0.15]}/>
+            <CylinderCollider args={[0.3, 0.25]} />
         </RigidBody>
     );
 };
